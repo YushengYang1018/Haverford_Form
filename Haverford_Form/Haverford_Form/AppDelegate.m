@@ -17,6 +17,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.locationManager = [CLLocationManager new];
+    self.locationManager.delegate = self;
+    [self.locationManager requestAlwaysAuthorization];
+    
+    [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
+    [[UIApplication sharedApplication]cancelAllLocalNotifications];
     return YES;
 }
 
@@ -124,4 +130,53 @@
     }
 }
 
+#pragma mark - location
+- (void)handleRegionEvent:(CLRegion *)region
+{
+    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
+        if ([self.window rootViewController]) {
+            NSLog(@"appdelegate notification");
+        } else {
+            UILocalNotification *notification = [[UILocalNotification alloc]init];
+            notification.alertBody = @"Software Merchant";
+            notification.soundName = @"Default";
+            [[UIApplication sharedApplication]presentLocalNotificationNow:notification];
+        }
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
+{
+    if ([region isKindOfClass:[CLCircularRegion class]]) {
+        [self handleRegionEvent:region];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
+{
+    if ([region isKindOfClass:[CLCircularRegion class]]) {
+        [self handleRegionEvent:region];
+    }
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

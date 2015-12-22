@@ -20,5 +20,7 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Haverford needs access to your location to track you on a map.</string>
 </dict>
 </plist>

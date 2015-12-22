@@ -10,12 +10,16 @@
 		DC9D8D9374699333FB7C86A3 /* libPods-Haverford_Form.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9E09615D4FDAA6F3DAD8DF /* libPods-Haverford_Form.a */; };
 		EE5757FA1C288A5900363B4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5757F91C288A5900363B4A /* main.m */; };
 		EE5757FD1C288A5900363B4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5757FC1C288A5900363B4A /* AppDelegate.m */; };
-		EE5758001C288A5900363B4A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5757FF1C288A5900363B4A /* ViewController.m */; };
 		EE5758031C288A5900363B4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5758011C288A5900363B4A /* Main.storyboard */; };
 		EE5758061C288A5900363B4A /* Haverford_Form.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE5758041C288A5900363B4A /* Haverford_Form.xcdatamodeld */; };
 		EE5758081C288A5900363B4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE5758071C288A5900363B4A /* Assets.xcassets */; };
 		EE57580B1C288A5900363B4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5758091C288A5900363B4A /* LaunchScreen.storyboard */; };
 		EE5758161C288A5900363B4A /* Haverford_FormTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5758151C288A5900363B4A /* Haverford_FormTests.m */; };
+		EE5758241C28932300363B4A /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5758231C28932300363B4A /* MainViewController.m */; };
+		EE5758261C2893CC00363B4A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE5758251C2893CC00363B4A /* MapKit.framework */; };
+		EE5758291C2894A500363B4A /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5758281C2894A500363B4A /* PlaceAnnotation.m */; };
+		EE57582B1C28975700363B4A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE57582A1C28975700363B4A /* CoreLocation.framework */; };
+		EE57582D1C289F8E00363B4A /* TestLocations.gpx in Resources */ = {isa = PBXBuildFile; fileRef = EE57582C1C289F8E00363B4A /* TestLocations.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +39,6 @@
 		EE5757F91C288A5900363B4A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EE5757FB1C288A5900363B4A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EE5757FC1C288A5900363B4A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EE5757FE1C288A5900363B4A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EE5757FF1C288A5900363B4A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EE5758021C288A5900363B4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE5758051C288A5900363B4A /* Haverford_Form.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Haverford_Form.xcdatamodel; sourceTree = "<group>"; };
 		EE5758071C288A5900363B4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,6 +47,13 @@
 		EE5758111C288A5900363B4A /* Haverford_FormTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Haverford_FormTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5758151C288A5900363B4A /* Haverford_FormTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Haverford_FormTests.m; sourceTree = "<group>"; };
 		EE5758171C288A5900363B4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE5758221C28932300363B4A /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		EE5758231C28932300363B4A /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		EE5758251C2893CC00363B4A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		EE5758271C2894A500363B4A /* PlaceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceAnnotation.h; sourceTree = "<group>"; };
+		EE5758281C2894A500363B4A /* PlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceAnnotation.m; sourceTree = "<group>"; };
+		EE57582A1C28975700363B4A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		EE57582C1C289F8E00363B4A /* TestLocations.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestLocations.gpx; sourceTree = "<group>"; };
 		FBF9B8A940C1A1660F04489E /* Pods-Haverford_Form.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haverford_Form.release.xcconfig"; path = "Pods/Target Support Files/Pods-Haverford_Form/Pods-Haverford_Form.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE57582B1C28975700363B4A /* CoreLocation.framework in Frameworks */,
+				EE5758261C2893CC00363B4A /* MapKit.framework in Frameworks */,
 				DC9D8D9374699333FB7C86A3 /* libPods-Haverford_Form.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,6 +90,8 @@
 		20F7A86FDECBC95B8D187B04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE57582A1C28975700363B4A /* CoreLocation.framework */,
+				EE5758251C2893CC00363B4A /* MapKit.framework */,
 				3A9E09615D4FDAA6F3DAD8DF /* libPods-Haverford_Form.a */,
 			);
 			name = Frameworks;
@@ -107,10 +120,10 @@
 		EE5757F71C288A5900363B4A /* Haverford_Form */ = {
 			isa = PBXGroup;
 			children = (
+				EE5758211C288DC600363B4A /* model */,
+				EE5758201C288DB600363B4A /* controller */,
 				EE5757FB1C288A5900363B4A /* AppDelegate.h */,
 				EE5757FC1C288A5900363B4A /* AppDelegate.m */,
-				EE5757FE1C288A5900363B4A /* ViewController.h */,
-				EE5757FF1C288A5900363B4A /* ViewController.m */,
 				EE5758011C288A5900363B4A /* Main.storyboard */,
 				EE5758071C288A5900363B4A /* Assets.xcassets */,
 				EE5758091C288A5900363B4A /* LaunchScreen.storyboard */,
@@ -124,6 +137,7 @@
 		EE5757F81C288A5900363B4A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EE57582C1C289F8E00363B4A /* TestLocations.gpx */,
 				EE5757F91C288A5900363B4A /* main.m */,
 			);
 			name = "Supporting Files";
@@ -136,6 +150,24 @@
 				EE5758171C288A5900363B4A /* Info.plist */,
 			);
 			path = Haverford_FormTests;
+			sourceTree = "<group>";
+		};
+		EE5758201C288DB600363B4A /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				EE5758221C28932300363B4A /* MainViewController.h */,
+				EE5758231C28932300363B4A /* MainViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		EE5758211C288DC600363B4A /* model */ = {
+			isa = PBXGroup;
+			children = (
+				EE5758271C2894A500363B4A /* PlaceAnnotation.h */,
+				EE5758281C2894A500363B4A /* PlaceAnnotation.m */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +222,7 @@
 				TargetAttributes = {
 					EE5757F41C288A5900363B4A = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = KKX8KEUZ6R;
 					};
 					EE5758101C288A5900363B4A = {
 						CreatedOnToolsVersion = 7.2;
@@ -223,6 +256,7 @@
 			files = (
 				EE57580B1C288A5900363B4A /* LaunchScreen.storyboard in Resources */,
 				EE5758081C288A5900363B4A /* Assets.xcassets in Resources */,
+				EE57582D1C289F8E00363B4A /* TestLocations.gpx in Resources */,
 				EE5758031C288A5900363B4A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,9 +323,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE5758001C288A5900363B4A /* ViewController.m in Sources */,
 				EE5757FD1C288A5900363B4A /* AppDelegate.m in Sources */,
 				EE5757FA1C288A5900363B4A /* main.m in Sources */,
+				EE5758241C28932300363B4A /* MainViewController.m in Sources */,
+				EE5758291C2894A500363B4A /* PlaceAnnotation.m in Sources */,
 				EE5758061C288A5900363B4A /* Haverford_Form.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +454,7 @@
 			baseConfigurationReference = 99FBE4454F464F4A1FFD7668 /* Pods-Haverford_Form.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Haverford_Form/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.softwaremerchant.Haverford-Form";
@@ -431,6 +467,7 @@
 			baseConfigurationReference = FBF9B8A940C1A1660F04489E /* Pods-Haverford_Form.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Haverford_Form/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.softwaremerchant.Haverford-Form";
