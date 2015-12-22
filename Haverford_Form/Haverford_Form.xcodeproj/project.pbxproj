@@ -20,6 +20,11 @@
 		EE5758291C2894A500363B4A /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5758281C2894A500363B4A /* PlaceAnnotation.m */; };
 		EE57582B1C28975700363B4A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE57582A1C28975700363B4A /* CoreLocation.framework */; };
 		EE57582D1C289F8E00363B4A /* TestLocations.gpx in Resources */ = {isa = PBXBuildFile; fileRef = EE57582C1C289F8E00363B4A /* TestLocations.gpx */; };
+		EE5758311C28F5E000363B4A /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5758301C28F5E000363B4A /* ProfileViewController.m */; };
+		EE5758341C28FC1D00363B4A /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE5758331C28FC1D00363B4A /* ProfileTableViewCell.xib */; };
+		EE5758371C28FE1E00363B4A /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5758361C28FE1E00363B4A /* ProfileTableViewCell.m */; };
+		EE57583A1C299F1B00363B4A /* UserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5758391C299F1B00363B4A /* UserInformation.m */; };
+		EE57583C1C29AF2700363B4A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE57583B1C29AF2700363B4A /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +59,14 @@
 		EE5758281C2894A500363B4A /* PlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceAnnotation.m; sourceTree = "<group>"; };
 		EE57582A1C28975700363B4A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EE57582C1C289F8E00363B4A /* TestLocations.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestLocations.gpx; sourceTree = "<group>"; };
+		EE57582F1C28F5E000363B4A /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		EE5758301C28F5E000363B4A /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		EE5758331C28FC1D00363B4A /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
+		EE5758351C28FE1E00363B4A /* ProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewCell.h; sourceTree = "<group>"; };
+		EE5758361C28FE1E00363B4A /* ProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewCell.m; sourceTree = "<group>"; };
+		EE5758381C299F1B00363B4A /* UserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformation.h; sourceTree = "<group>"; };
+		EE5758391C299F1B00363B4A /* UserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformation.m; sourceTree = "<group>"; };
+		EE57583B1C29AF2700363B4A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FBF9B8A940C1A1660F04489E /* Pods-Haverford_Form.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haverford_Form.release.xcconfig"; path = "Pods/Target Support Files/Pods-Haverford_Form/Pods-Haverford_Form.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +133,7 @@
 		EE5757F71C288A5900363B4A /* Haverford_Form */ = {
 			isa = PBXGroup;
 			children = (
+				EE5758321C28FBFA00363B4A /* view */,
 				EE5758211C288DC600363B4A /* model */,
 				EE5758201C288DB600363B4A /* controller */,
 				EE5757FB1C288A5900363B4A /* AppDelegate.h */,
@@ -128,6 +142,7 @@
 				EE5758071C288A5900363B4A /* Assets.xcassets */,
 				EE5758091C288A5900363B4A /* LaunchScreen.storyboard */,
 				EE57580C1C288A5900363B4A /* Info.plist */,
+				EE57583B1C29AF2700363B4A /* GoogleService-Info.plist */,
 				EE5758041C288A5900363B4A /* Haverford_Form.xcdatamodeld */,
 				EE5757F81C288A5900363B4A /* Supporting Files */,
 			);
@@ -157,6 +172,8 @@
 			children = (
 				EE5758221C28932300363B4A /* MainViewController.h */,
 				EE5758231C28932300363B4A /* MainViewController.m */,
+				EE57582F1C28F5E000363B4A /* ProfileViewController.h */,
+				EE5758301C28F5E000363B4A /* ProfileViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -166,8 +183,20 @@
 			children = (
 				EE5758271C2894A500363B4A /* PlaceAnnotation.h */,
 				EE5758281C2894A500363B4A /* PlaceAnnotation.m */,
+				EE5758381C299F1B00363B4A /* UserInformation.h */,
+				EE5758391C299F1B00363B4A /* UserInformation.m */,
 			);
 			name = model;
+			sourceTree = "<group>";
+		};
+		EE5758321C28FBFA00363B4A /* view */ = {
+			isa = PBXGroup;
+			children = (
+				EE5758331C28FC1D00363B4A /* ProfileTableViewCell.xib */,
+				EE5758351C28FE1E00363B4A /* ProfileTableViewCell.h */,
+				EE5758361C28FE1E00363B4A /* ProfileTableViewCell.m */,
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,9 +284,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE57580B1C288A5900363B4A /* LaunchScreen.storyboard in Resources */,
+				EE57583C1C29AF2700363B4A /* GoogleService-Info.plist in Resources */,
 				EE5758081C288A5900363B4A /* Assets.xcassets in Resources */,
 				EE57582D1C289F8E00363B4A /* TestLocations.gpx in Resources */,
 				EE5758031C288A5900363B4A /* Main.storyboard in Resources */,
+				EE5758341C28FC1D00363B4A /* ProfileTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,9 +355,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE5757FD1C288A5900363B4A /* AppDelegate.m in Sources */,
+				EE57583A1C299F1B00363B4A /* UserInformation.m in Sources */,
 				EE5757FA1C288A5900363B4A /* main.m in Sources */,
+				EE5758371C28FE1E00363B4A /* ProfileTableViewCell.m in Sources */,
 				EE5758241C28932300363B4A /* MainViewController.m in Sources */,
 				EE5758291C2894A500363B4A /* PlaceAnnotation.m in Sources */,
+				EE5758311C28F5E000363B4A /* ProfileViewController.m in Sources */,
 				EE5758061C288A5900363B4A /* Haverford_Form.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,6 +489,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Haverford_Form/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.softwaremerchant.Haverford-Form";
@@ -468,6 +503,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Haverford_Form/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.softwaremerchant.Haverford-Form";

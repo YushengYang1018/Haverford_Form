@@ -21,8 +21,16 @@
     self.locationManager.delegate = self;
     [self.locationManager requestAlwaysAuthorization];
     
+    //notification configure
     [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
     [[UIApplication sharedApplication]cancelAllLocalNotifications];
+    
+    //Google sign in configure
+    NSError* configureError;
+    [[GGLContext sharedInstance] configureWithError: &configureError];
+    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
+    [GIDSignIn sharedInstance].delegate = self;
+    
     return YES;
 }
 
@@ -157,6 +165,60 @@
     if ([region isKindOfClass:[CLCircularRegion class]]) {
         [self handleRegionEvent:region];
     }
+}
+
+#pragma mark - Google signin
+
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [[GIDSignIn sharedInstance] handleURL:url
+                               sourceApplication:sourceApplication
+                                      annotation:annotation];
+    
+}
+
+- (void)signIn:(GIDSignIn *)signIn
+didSignInForUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+    // Perform any operations on signed in user here.
+    NSLog(@"******google sign in called*******");
+    
+    NSString *userId = user.userID;                  // For client-side use only!
+    //    NSString *idToken = user.authentication.idToken; // Safe to send to the server
+    NSString *name = user.profile.name;
+    NSString *email = user.profile.email;
+    // ...
+    
+    NSLog(@"####################\nUserId:%@\nname:%@\nemail:%@",userId,name,email);
+    if(user != nil){
+        NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+        [settings removeObjectForKey:@"UserId"];
+        [settings removeObjectForKey:@"Name"];
+        [settings removeObjectForKey:@"Email"];
+        [settings removeObjectForKey:@"UserImageURL"];
+        
+        [settings setObject:userId forKey:@"UserId"];
+        [settings setObject:name forKey:@"Name"];
+        [settings setObject:email forKey:@"Email"];
+        if (user.profile.hasImage) {
+            NSString *imageURL = [NSString stringWithFormat:@"%@", [user.profile imageURLWithDimension:150]];
+            [settings setObject:imageURL forKey:@"UserImageURL"];
+        }
+        [settings synchronize];
+    } else {
+        NSLog(@"#################Google Sign in Cancelled");
+    }
+    
+    
+}
+- (void)signIn:(GIDSignIn *)signIn
+didDisconnectWithUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+    // Perform any operations when the user disconnects from app here.
+    // ...
 }
 
 @end

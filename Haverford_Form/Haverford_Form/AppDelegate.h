@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import <MapKit/MapKit.h>
+#import <Google/SignIn.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate, GIDSignInDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
