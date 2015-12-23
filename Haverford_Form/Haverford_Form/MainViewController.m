@@ -8,7 +8,9 @@
 
 #import "MainViewController.h"
 #import <BFPaperButton/BFPaperButton.h>
-#import <UIColor+BFPaperColors/UIColor+BFPaperColors.h>
+#import "UIColor+Haverford.h"
+#import <Parse/Parse.h>
+#import <GoogleSignIn/GIDSignIn.h>
 
 
 @interface MainViewController ()
@@ -29,18 +31,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initilizeLocationTracking];
+    [GIDSignIn sharedInstance].uiDelegate = self;
     //init buttons
     [self.checkInButton setTitle:@"Chech-In" forState:UIControlStateNormal];
-    self.checkInButton.backgroundColor = [UIColor paperColorRed900];
+    self.checkInButton.backgroundColor = [UIColor haverfordMainRedColor];
     [self.checkInButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.checkInButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     self.checkInButton.isRaised = YES;
     
     [self.checkOutButton setTitle:@"Chech-Out" forState:UIControlStateNormal];
-    self.checkOutButton.backgroundColor = [UIColor paperColorRed900];
+    self.checkOutButton.backgroundColor = [UIColor haverfordMainRedColor];
     [self.checkOutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.checkOutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     self.checkOutButton.isRaised = YES;
+    
+    self.view.backgroundColor = [UIColor haverfordMainBackgroundColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -128,8 +133,8 @@
 - (CLCircularRegion *)safeRegion
 {
     if (!_safeRegion) {
-        _safeRegion = [[CLCircularRegion alloc]initWithCenter:self.centerLocation.coordinate radius:100.0 identifier:@"Software Merchant"];
-//        _safeRegion = [[CLCircularRegion alloc]initWithCenter:CLLocationCoordinate2DMake(40.075522, -75.413383) radius:1000.0 identifier:@"Software Merchant"];
+        _safeRegion = [[CLCircularRegion alloc]initWithCenter:self.centerLocation.coordinate radius:500.0 identifier:@"Software Merchant"];
+       //_safeRegion = [[CLCircularRegion alloc]initWithCenter:CLLocationCoordinate2DMake(40.075522, -75.413383) radius:1000.0 identifier:@"Software Merchant"];
         _safeRegion.notifyOnEntry = YES;
         _safeRegion.notifyOnExit = YES;
     }
@@ -157,14 +162,59 @@
     [self.mapView setRegion:region animated:YES];
 }
 
+#pragma mark - IBAction
+- (IBAction)checkInButtonClick:(id)sender
+{
+    if (![[GIDSignIn sharedInstance]hasAuthInKeychain]) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warning" message:@"Please Sign In With Your Haverford Account, and Press CheckIn Again" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self performSelectorOnMainThread:@selector(perfromGoogleSignIn) withObject:nil waitUntilDone:NO];
+        }];
+        
+        [alertController addAction:cancelAction];
+        [alertController addAction:okAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+    } else {
+        PFObject *record = [PFObject objectWithClassName:@"CheckInRecords"];
+        NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+        record[@"Name"] = [settings objectForKey:@"Name"];
+        record[@"Email"] = [settings objectForKey:@"Email"];
+        record[@"State"] = @"CheckIn";
+        record[@"TimeStamp"] = [NSString stringWithFormat:@"%@",[NSDate date]];
+        [record saveInBackground];
+        [self showAlertViewWithTitle:@"CheckIn Successful" andMessage:@"Thank You!"];
+    }
+    
+}
 
-/*
+- (IBAction)checkOutButtonClick:(id)sender
+{
+    if (![[GIDSignIn sharedInstance]hasAuthInKeychain]) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warning" message:@"Please Sign In With Your Haverford Account, and Press CheckOut Again" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self performSelectorOnMainThread:@selector(perfromGoogleSignIn) withObject:nil waitUntilDone:NO];
+        }];
+        [alertController addAction:cancelAction];
+        [alertController addAction:okAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    } else {
+        [self performSegueWithIdentifier:@"CheckOutSegue" sender:self];
+    }
+}
+
+- (void)perfromGoogleSignIn
+{
+    [[GIDSignIn sharedInstance]signIn];
+}
+
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
+     
  }
- */
+
 @end

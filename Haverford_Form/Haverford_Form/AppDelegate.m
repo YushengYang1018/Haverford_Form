@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ProfileViewController.h"
 
 @interface AppDelegate ()
 
@@ -30,6 +31,11 @@
     [[GGLContext sharedInstance] configureWithError: &configureError];
     NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
     [GIDSignIn sharedInstance].delegate = self;
+    
+    //Parse Configure
+    //[Parse enableLocalDatastore];
+    [Parse setApplicationId:@"xz9DpaZcb61NiZciV9lScgZjvdTa7LwDlNC34cUl"
+                  clientKey:@"FoBO3MJFMgVaxeiVtkM5Dj8LaEbQmKjYxPelc7b0"];
     
     return YES;
 }
@@ -190,7 +196,6 @@ didSignInForUser:(GIDGoogleUser *)user
     //    NSString *idToken = user.authentication.idToken; // Safe to send to the server
     NSString *name = user.profile.name;
     NSString *email = user.profile.email;
-    // ...
     
     NSLog(@"####################\nUserId:%@\nname:%@\nemail:%@",userId,name,email);
     if(user != nil){
@@ -208,6 +213,8 @@ didSignInForUser:(GIDGoogleUser *)user
             [settings setObject:imageURL forKey:@"UserImageURL"];
         }
         [settings synchronize];
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"GoogleDidSignInNotification" object:nil];
+    
     } else {
         NSLog(@"#################Google Sign in Cancelled");
     }

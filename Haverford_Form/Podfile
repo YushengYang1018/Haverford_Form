@@ -8,6 +8,7 @@ pod 'Google/SignIn'
 pod 'Parse'
 pod 'BFPaperButton', '~> 2.0.18'
 pod 'PayPal-iOS-SDK'
+pod 'mailcore2-ios'
 end
 
 target 'Haverford_FormTests' do

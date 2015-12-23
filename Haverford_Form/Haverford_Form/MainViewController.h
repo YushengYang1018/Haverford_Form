@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "PlaceAnnotation.h"
+#import <GoogleSignIn/GoogleSignIn.h>
 
 NSString * const centerLocationString = @"485 Devon Park Drive, Wayne, PA, 19087";
 
 
-@interface MainViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
+@interface MainViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, GIDSignInUIDelegate>
 
 @end

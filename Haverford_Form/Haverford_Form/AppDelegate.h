@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import <MapKit/MapKit.h>
 #import <Google/SignIn.h>
+#import <Parse/Parse.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate, GIDSignInDelegate>
 
