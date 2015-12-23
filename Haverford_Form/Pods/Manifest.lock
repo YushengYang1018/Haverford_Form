@@ -28,6 +28,7 @@ PODS:
   - GoogleSymbolUtilities (1.0.3)
   - GoogleUtilities (1.1.0):
     - GoogleSymbolUtilities (~> 1.0.0)
+  - mailcore2-ios (0.5.1)
   - Parse (1.11.0):
     - Bolts/Tasks (~> 1.5)
   - PayPal-iOS-SDK (2.12.9):
@@ -41,6 +42,7 @@ PODS:
 DEPENDENCIES:
   - BFPaperButton (~> 2.0.18)
   - Google/SignIn
+  - mailcore2-ios
   - Parse
   - PayPal-iOS-SDK
 
@@ -56,6 +58,7 @@ SPEC CHECKSUMS:
   GoogleSignIn: 79929b51e6299c69f1197bbd9c7a1367d523ecd8
   GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
   GoogleUtilities: 8ed9134debe11719097881711464752900668f10
+  mailcore2-ios: f1c1cd3c91d8963293b6552ad11bf3c7cf8ef8a9
   Parse: 886af46a0a677402f6374bb97ac212e795f70afe
   PayPal-iOS-SDK: 98ab60b137b7fd35ab5a785d11f042f6858b4f11
   UIColor+BFPaperColors: 03101fe6c10ed00c6daae7c26553f1de41500853

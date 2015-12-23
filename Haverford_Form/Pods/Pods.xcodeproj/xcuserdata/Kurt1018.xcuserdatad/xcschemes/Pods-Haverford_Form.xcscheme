@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A7A885156B76853666A98B2A'
+               BlueprintIdentifier = '17A321E7122B17532D80BF60'
                BlueprintName = 'Pods-Haverford_Form'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-Haverford_Form.a'>
