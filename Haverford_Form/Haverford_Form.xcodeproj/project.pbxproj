@@ -10,7 +10,6 @@
 		DC9D8D9374699333FB7C86A3 /* libPods-Haverford_Form.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9E09615D4FDAA6F3DAD8DF /* libPods-Haverford_Form.a */; };
 		EE5757FA1C288A5900363B4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5757F91C288A5900363B4A /* main.m */; };
 		EE5757FD1C288A5900363B4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5757FC1C288A5900363B4A /* AppDelegate.m */; };
-		EE5758031C288A5900363B4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5758011C288A5900363B4A /* Main.storyboard */; };
 		EE5758061C288A5900363B4A /* Haverford_Form.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE5758041C288A5900363B4A /* Haverford_Form.xcdatamodeld */; };
 		EE5758081C288A5900363B4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE5758071C288A5900363B4A /* Assets.xcassets */; };
 		EE57580B1C288A5900363B4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5758091C288A5900363B4A /* LaunchScreen.storyboard */; };
@@ -28,8 +27,11 @@
 		EE57583F1C29D49100363B4A /* CheckOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE57583E1C29D49100363B4A /* CheckOutViewController.m */; };
 		EE5758441C2A01D400363B4A /* topbar.png in Resources */ = {isa = PBXBuildFile; fileRef = EE5758431C2A01D400363B4A /* topbar.png */; };
 		EE5758471C2A3C5300363B4A /* ProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5758461C2A3C5300363B4A /* ProfileEditViewController.m */; };
-		EE5758491C2AE42B00363B4A /* Logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE5758481C2AE42B00363B4A /* Logo.jpg */; };
 		EE57584C1C2AE70D00363B4A /* UIColor+Haverford.m in Sources */ = {isa = PBXBuildFile; fileRef = EE57584B1C2AE70D00363B4A /* UIColor+Haverford.m */; };
+		EE57584E1C2B029200363B4A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE57584D1C2B029200363B4A /* LaunchScreen.xib */; };
+		EE5758501C2B02CC00363B4A /* HaverfordSchoolLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = EE57584F1C2B02CC00363B4A /* HaverfordSchoolLogo.png */; };
+		EE5758521C2B032400363B4A /* Screen Shot 2015-12-20 at 12.18.45 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = EE5758511C2B032400363B4A /* Screen Shot 2015-12-20 at 12.18.45 PM.png */; };
+		EE5758541C2B08E700363B4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5758531C2B08E700363B4A /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +51,6 @@
 		EE5757F91C288A5900363B4A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EE5757FB1C288A5900363B4A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EE5757FC1C288A5900363B4A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EE5758021C288A5900363B4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE5758051C288A5900363B4A /* Haverford_Form.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Haverford_Form.xcdatamodel; sourceTree = "<group>"; };
 		EE5758071C288A5900363B4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE57580A1C288A5900363B4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -77,9 +78,12 @@
 		EE5758431C2A01D400363B4A /* topbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topbar.png; sourceTree = "<group>"; };
 		EE5758451C2A3C5300363B4A /* ProfileEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditViewController.h; sourceTree = "<group>"; };
 		EE5758461C2A3C5300363B4A /* ProfileEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditViewController.m; sourceTree = "<group>"; };
-		EE5758481C2AE42B00363B4A /* Logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo.jpg; sourceTree = "<group>"; };
 		EE57584A1C2AE70D00363B4A /* UIColor+Haverford.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Haverford.h"; sourceTree = "<group>"; };
 		EE57584B1C2AE70D00363B4A /* UIColor+Haverford.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Haverford.m"; sourceTree = "<group>"; };
+		EE57584D1C2B029200363B4A /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		EE57584F1C2B02CC00363B4A /* HaverfordSchoolLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HaverfordSchoolLogo.png; sourceTree = "<group>"; };
+		EE5758511C2B032400363B4A /* Screen Shot 2015-12-20 at 12.18.45 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2015-12-20 at 12.18.45 PM.png"; sourceTree = "<group>"; };
+		EE5758531C2B08E700363B4A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FBF9B8A940C1A1660F04489E /* Pods-Haverford_Form.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haverford_Form.release.xcconfig"; path = "Pods/Target Support Files/Pods-Haverford_Form/Pods-Haverford_Form.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,8 +156,8 @@
 				EE5758201C288DB600363B4A /* controller */,
 				EE5757FB1C288A5900363B4A /* AppDelegate.h */,
 				EE5757FC1C288A5900363B4A /* AppDelegate.m */,
-				EE5758011C288A5900363B4A /* Main.storyboard */,
 				EE5758071C288A5900363B4A /* Assets.xcassets */,
+				EE5758531C2B08E700363B4A /* Main.storyboard */,
 				EE5758091C288A5900363B4A /* LaunchScreen.storyboard */,
 				EE57580C1C288A5900363B4A /* Info.plist */,
 				EE57583B1C29AF2700363B4A /* GoogleService-Info.plist */,
@@ -210,6 +214,7 @@
 		EE5758321C28FBFA00363B4A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				EE57584D1C2B029200363B4A /* LaunchScreen.xib */,
 				EE5758331C28FC1D00363B4A /* ProfileTableViewCell.xib */,
 				EE5758351C28FE1E00363B4A /* ProfileTableViewCell.h */,
 				EE5758361C28FE1E00363B4A /* ProfileTableViewCell.m */,
@@ -222,7 +227,8 @@
 		EE5758401C2A017000363B4A /* photos */ = {
 			isa = PBXGroup;
 			children = (
-				EE5758481C2AE42B00363B4A /* Logo.jpg */,
+				EE57584F1C2B02CC00363B4A /* HaverfordSchoolLogo.png */,
+				EE5758511C2B032400363B4A /* Screen Shot 2015-12-20 at 12.18.45 PM.png */,
 				EE5758431C2A01D400363B4A /* topbar.png */,
 			);
 			name = photos;
@@ -312,13 +318,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE5758491C2AE42B00363B4A /* Logo.jpg in Resources */,
 				EE57580B1C288A5900363B4A /* LaunchScreen.storyboard in Resources */,
+				EE5758541C2B08E700363B4A /* Main.storyboard in Resources */,
+				EE5758501C2B02CC00363B4A /* HaverfordSchoolLogo.png in Resources */,
 				EE57583C1C29AF2700363B4A /* GoogleService-Info.plist in Resources */,
 				EE5758081C288A5900363B4A /* Assets.xcassets in Resources */,
+				EE5758521C2B032400363B4A /* Screen Shot 2015-12-20 at 12.18.45 PM.png in Resources */,
 				EE57582D1C289F8E00363B4A /* TestLocations.gpx in Resources */,
-				EE5758031C288A5900363B4A /* Main.storyboard in Resources */,
 				EE5758441C2A01D400363B4A /* topbar.png in Resources */,
+				EE57584E1C2B029200363B4A /* LaunchScreen.xib in Resources */,
 				EE5758341C28FC1D00363B4A /* ProfileTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,14 +426,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EE5758011C288A5900363B4A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EE5758021C288A5900363B4A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EE5758091C288A5900363B4A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

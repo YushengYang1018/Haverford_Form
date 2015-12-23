@@ -10,6 +10,7 @@
 #import <BFPaperButton/BFPaperButton.h>
 #import <UIColor+BFPaperColors/UIColor+BFPaperColors.h>
 #import <Parse/Parse.h>
+#import <MailCore/MailCore.h>
 
 @interface CheckOutViewController ()
 
@@ -46,6 +47,7 @@
     record[@"TimeStamp"] = [NSString stringWithFormat:@"%@",[NSDate date]];
     
     [record saveInBackground];
+    [self sendCheckOutRecordEmail:self.whereTextField.text];
     [self showAlertViewWithTitle:@"Check-Out" andMessage:@"Check Out Successful"];
 }
 
@@ -71,5 +73,48 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)sendCheckOutRecordEmail:(NSString *)dest
+{
+    MCOSMTPSession *smtpSession = [[MCOSMTPSession alloc] init];
+    smtpSession.hostname = @"smtp.gmail.com";
+    smtpSession.port = 465;
+    smtpSession.username = @"thsformvi@gmail.com";
+    smtpSession.password = @"Haverford2016";
+    smtpSession.authType = MCOAuthTypeSASLPlain;
+    smtpSession.connectionType = MCOConnectionTypeTLS;
+    
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    NSString *username = [settings objectForKey:@"Name"];
+    NSString *userEmail = [settings objectForKey:@"Email"];
+    NSString *timeStamp = [NSString stringWithFormat:@"%@",[NSDate date]];
+    
+    NSDictionary *recordDic = @{@"UserName":username,@"UserEmail":userEmail,@"TimeStamp":timeStamp,@"Destination":dest};
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:recordDic
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:nil];
+    NSString *mailContent = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    MCOMessageBuilder *builder = [[MCOMessageBuilder alloc] init];
+    MCOAddress *from = [MCOAddress addressWithDisplayName:@"Haverford_Form"
+                                                  mailbox:@"thsformvi@gmail.com"];
+    MCOAddress *to = [MCOAddress addressWithDisplayName:nil
+                                                mailbox:@"thsformvi@gmail.com"];
+    [[builder header] setFrom:from];
+    [[builder header] setTo:@[to]];
+    [[builder header] setSubject:[NSString stringWithFormat:@"%@ check-out to %@", username,dest]];
+    [builder setHTMLBody:mailContent];
+    NSData * checkinEmaildata = [builder data];
+    
+    MCOSMTPSendOperation *sendOperation =
+    [smtpSession sendOperationWithData:checkinEmaildata];
+    [sendOperation start:^(NSError *error) {
+        if(error) {
+            NSLog(@"Error sending email: %@", error);
+        } else {
+            NSLog(@"Successfully sent email!");
+        }
+    }];
+}
 
 @end

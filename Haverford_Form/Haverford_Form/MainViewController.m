@@ -11,6 +11,7 @@
 #import "UIColor+Haverford.h"
 #import <Parse/Parse.h>
 #import <GoogleSignIn/GIDSignIn.h>
+#import <MailCore/MailCore.h>
 
 
 @interface MainViewController ()
@@ -33,13 +34,13 @@
     [self initilizeLocationTracking];
     [GIDSignIn sharedInstance].uiDelegate = self;
     //init buttons
-    [self.checkInButton setTitle:@"Chech-In" forState:UIControlStateNormal];
+    [self.checkInButton setTitle:@"Check-In" forState:UIControlStateNormal];
     self.checkInButton.backgroundColor = [UIColor haverfordMainRedColor];
     [self.checkInButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.checkInButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     self.checkInButton.isRaised = YES;
     
-    [self.checkOutButton setTitle:@"Chech-Out" forState:UIControlStateNormal];
+    [self.checkOutButton setTitle:@"Check-Out" forState:UIControlStateNormal];
     self.checkOutButton.backgroundColor = [UIColor haverfordMainRedColor];
     [self.checkOutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.checkOutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
@@ -185,6 +186,7 @@
         record[@"TimeStamp"] = [NSString stringWithFormat:@"%@",[NSDate date]];
         [record saveInBackground];
         [self showAlertViewWithTitle:@"CheckIn Successful" andMessage:@"Thank You!"];
+        [self sendCheckInRecordEmail];
     }
     
 }
@@ -216,5 +218,49 @@
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
      
  }
+
+#pragma mark - mailCore
+- (void)sendCheckInRecordEmail
+{
+    MCOSMTPSession *smtpSession = [[MCOSMTPSession alloc] init];
+    smtpSession.hostname = @"smtp.gmail.com";
+    smtpSession.port = 465;
+    smtpSession.username = @"thsformvi@gmail.com";
+    smtpSession.password = @"Haverford2016";
+    smtpSession.authType = MCOAuthTypeSASLPlain;
+    smtpSession.connectionType = MCOConnectionTypeTLS;
+    
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    NSString *username = [settings objectForKey:@"Name"];
+    NSString *userEmail = [settings objectForKey:@"Email"];
+    NSString *timeStamp = [NSString stringWithFormat:@"%@",[NSDate date]];
+    
+    NSDictionary *recordDic = @{@"UserName":username,@"UserEmail":userEmail,@"TimeStamp":timeStamp};
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:recordDic
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:nil];
+    NSString *mailContent = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    MCOMessageBuilder *builder = [[MCOMessageBuilder alloc] init];
+    MCOAddress *from = [MCOAddress addressWithDisplayName:@"Haverford_Form"
+                                                  mailbox:@"thsformvi@gmail.com"];
+    MCOAddress *to = [MCOAddress addressWithDisplayName:nil
+                                                mailbox:@"thsformvi@gmail.com"];
+    [[builder header] setFrom:from];
+    [[builder header] setTo:@[to]];
+    [[builder header] setSubject:[NSString stringWithFormat:@"%@ check-in", username]];
+    [builder setHTMLBody:mailContent];
+    NSData * checkinEmaildata = [builder data];
+    
+    MCOSMTPSendOperation *sendOperation =
+    [smtpSession sendOperationWithData:checkinEmaildata];
+    [sendOperation start:^(NSError *error) {
+        if(error) {
+            NSLog(@"Error sending email: %@", error);
+        } else {
+            NSLog(@"Successfully sent email!");
+        }
+    }];
+}
 
 @end
